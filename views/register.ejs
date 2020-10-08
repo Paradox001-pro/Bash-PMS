@@ -1,0 +1,41 @@
+
+
+
+<!-- Register -->
+<%- include('./partials/messages') -%>
+<main class="login-body" data-vide-bg="/assets/img/login-bg.mp4">
+    <!-- Login Admin -->
+    <form class="form-default" action="/users/register" method="POST">
+        
+        <div class="login-form">
+            <!-- logo-login -->
+            <div class="logo-login">
+                <a href="index"><img src="assets/img/logo/loder.png" alt=""></a>
+            </div>
+            <h2>Register Here</h2>
+
+            <div class="form-input">
+                <label for="name">Full name</label>
+                <input id="name"  type="text" name="fullname" placeholder="Full name">
+            </div>
+            <div class="form-input">
+                <label for="email">Email Address</label>
+                <input id="email" type="email" name="email" placeholder="Email Address">
+            </div>
+            <div class="form-input">
+                <label for="password">Password</label>
+                <input id="password" type="password" name="password" placeholder="Password">
+            </div>
+            <div class="form-input">
+                <label for="password2">Confirm Password</label>
+                <input id="password2" type="password" name="password2" placeholder="Confirm Password">
+            </div>
+            <div class="form-input pt-30">
+                <input type="submit" name="submit" value="Register">
+            </div>
+            <!-- Forget Password -->
+            <a href="login" class="registration">login</a>
+        </div>
+    </form>
+    <!-- /end login form -->
+</main>

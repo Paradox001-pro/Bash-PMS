@@ -1,0 +1,42 @@
+<header class=" sticky-top">
+    <!-- Header Start -->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-info">
+        <div class="container">
+            <a href="/" class="navbar-brand"><img src="assets/img/logo/nhublogo.png" alt=""
+                class="img-fluid mb-5 mt-1 ml-1 mr-5" id="nhub"><img class="img-fluid" id="yuno"
+                src="assets/img/logo/picture1.jpg" alt=""></a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navNavbar"><span
+                    class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navNavbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active" >
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+                    <!-- Button -->
+                    <% if(user){ %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn3" href="/users/logout"
+                            >Logout</a
+                            ></li>
+                    <% }else{ %>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn3" href="/users/login">Login</a>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+      </nav>
+
+
+    <!-- Header End -->
+</header>
