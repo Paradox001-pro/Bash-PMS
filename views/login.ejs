@@ -1,27 +1,30 @@
+
+
+
 <%- include('./partials/messages') -%>
-<main class="login-body" data-vide-bg="/assets/img/login-bg.mp4">
-    <!-- Login Admin -->
+
+
     <div class="container">
         <div class="row">
             <div class="col">
-                <form class="form-default" action="/users/login" method="POST">
+                <form class="" action="/users/login" method="POST">
             
-                    <div class="login-form">
+
                         <!-- logo-login -->
                         <div class="logo-login">
-                            <a href="index"><img src="assets/img/logo/loder.png" alt=""></a>
+                            <a href="index"><img src="/public/Doc/img/logo.png" alt=""></a>
                         </div>
                         <h2>Login Here</h2>
-                        <div class="form-input">
+                        <div class="form-group">
                             <label for="name">Email</label>
-                            <input type="email" name="email" placeholder="Email">
+                            <input type="email" class="form-control" name="email" placeholder="Email">
                         </div>
-                        <div class="form-input">
+                        <div class="form-group">
                             <label for="name">Password</label>
-                            <input type="password" name="password" placeholder="Password">
+                            <input type="password" class="form-control" name="password" placeholder="Password">
                         </div>
-                        <div class="form-input pt-30">
-                            <input type="submit" name="submit" value="login">
+                        <div class="form-group pt-30">
+                            <input type="submit" class="form-control" name="submit" value="login">
                         </div>
             
             
@@ -29,10 +32,8 @@
                         <a href="#" class="forget">Forget Password</a>
                         <!-- Forget Password -->
                         <a href="/users/register" class="registration">Registration</a>
-                    </div>
+
                 </form>
             </div>
         </div>
     </div>
-    <!-- /end login form -->
-</main>

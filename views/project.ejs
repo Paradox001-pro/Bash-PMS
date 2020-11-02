@@ -1,0 +1,31 @@
+
+
+
+    <section class="container">
+        <div class="row">
+            <% if(task){ %>
+    
+            <div class="col-12">
+                <h2 class="text-white capitalize bg-dark text-center p-2">  name <%= task.projectName%></h2>
+                <p class="p-3"><span class="p-3 bg-light">Project description</span> <%= task.projectDescription%></p>
+                <p class="p-3"><span class="bg-light p-3">Number of participants</span> <%= task.personsInvolved%></p>
+                <p class="p-3"> <span class="bg-light p-3">Location</span>  <%= task.location %></p>
+                <p class="p-3"> <span class="bg-light p-3">Duration</span>  <%= task.duration %></p>
+                <p class="p-3"> <span class="bg-light p-3"> From</span> <%= task.from %></p>
+                <p class="p-3"> <span class="bg-light p-3"> To</span>  <%= task.to %></p>
+                <p class="p-3"> <span class="bg-light p-3"> You wrote this project on </span><%= task.date %></p>
+            </div>
+           
+        </div>
+        <section>
+            <h2 class="capitalize text-center p-2 bg-dark text-white">Status Report</h2>
+            <form action="/projects/<%= task._id %>" method="POST">
+                    <div class="form-group">
+                        <label for="persons"><%= name %></label>
+                        <textarea name='report' id="persons" type="text" placeholder="report" rows="10"  class="form-control"></textarea>
+                    </div>
+                <input class="btn btn-primary" type="submit" value="Add Task">
+            </form>
+        </section>
+    </section>
+    <% } %>

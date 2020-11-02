@@ -9,6 +9,8 @@ const User = require('../models/User');
 //login page
 router.get('/login', (req,res) => res.render('login'));
 
+
+
 //register page
 router.get('/register', (req,res) => res.render('register'));
 
@@ -82,7 +84,7 @@ router.post('/register', (req,res) =>{
 // login post route
 router.post('/login', (req, res, next) => {
     passport.authenticate('local', {
-        successRedirect: '/',
+        successRedirect: '/dashboard',
         failureRedirect: '/users/login',
         failureFlash: true
     })(req, res, next);

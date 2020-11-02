@@ -3,19 +3,31 @@ const router = express.Router();
 const Task = require('../models/task');
 const { ensureAuthenticated } = require('../config/auth');
 
-
-router.get('/',ensureAuthenticated, (req, res) => {
-    Task.find({}, (err, task)=>{
-        res.render('dashboard',{
+router.get('/', (req, res) => {
+    Task.find({}, (err, task) => {
+        res.render('dashboard', {
             task: task
         })
     })
 });
 
-//save task
-router.post('/',ensureAuthenticated, (req, res) => {
+//get single task
+router.get('/:id', (req, res) => {
+    Task.findById(req.params.id, (err, task) => {
+        if (err) {
+            console.log(err)
+        } else {
+            res.render('singleTask', {
+                task: task,
+            })
+        }
+    })
+})
 
-    let task = new Task();
+//save task
+router.post('/', ensureAuthenticated, (req, res) => {
+
+    const task = new Task();
     task.projectName = req.body.projectName;
     task.projectType = req.body.projectType;
     task.projectDescription = req.body.projectDescription;
@@ -23,26 +35,16 @@ router.post('/',ensureAuthenticated, (req, res) => {
     task.amountRequired = req.body.amountRequired;
     task.location = req.body.location;
     task.duration = req.body.duration;
+    task.report = req.body.report;
     task.from = req.body.from;
     task.to = req.body.to;
 
     task.save().then(user => {
         req.flash('success_msg', 'New task listed')
-        res.redirect('/')
+        res.redirect('/dashboard')
     }).catch(err => {
         console.log(err)
     });
-
 });
-
-//get single task
-router.get('/:id',ensureAuthenticated, (req,res)=>{
-    Task.findById(req.params.id, (err, task)=>{
-        res.render('singleTask',{
-            task: task
-        })
-    })
-})
-
 
 module.exports = router;

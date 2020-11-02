@@ -25,7 +25,13 @@ const TaskSchema = mongoose.Schema({
     from:{
         type: String,
     },
+    report:{
+        type:String,
+    },
     to:{
+        type: String,
+    },
+    report:{
         type: String,
     },
     date:{

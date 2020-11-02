@@ -1,43 +1,49 @@
-<main>
 
-    <div class="container">
+
+<main>
+    <%- include('./partials/header') -%>
+    <%- include('./partials/messages') -%>
+    <div class="container mt-5">
+
         <div class="row">
-            <div class="col-12">
-                <h1 class="text-center">Dashboard</h1>
-                <%- include('./partials/messages') -%>
-                <hr>
-            </div>
-            <div class="col-md-4">
-                <div class="card  bg-primary text-light p-3">
-                    <h3 class="text-center">Project</h3>
+
+            <div class="col-md-4 ">
+                <div class="card  bg-info text-light p-3">
+                    <h3 class="text-center text-light">Project</h3>
                     <button class="btn" data-toggle="modal" data-target="#task">
                         <i class="fa fa-plus"></i>
                     </button>
                 </div>
             </div>
-            <div class="col-md-8 ">
-                <h3 class="text-center text-primary">Project Preview</h3>
-                <div class="d-flex overview">
+            <div class="col-md-8  overview">
+                <h3 class="h2 display-3 text-center text-info">Project Preview</h3>
+                <div class="row">
                     <% if(task){  %>
-                    <% task.forEach(task =>{ %>
-                    <div class="card col-md-6 mt-2 border-0">
-                        <div class="card-header p-0 text-center">
-                            <h5><%= task.projectName %></h5>
+                    <% var c = 1; %>
+                    <% task.forEach(task => { %>
+                    <div class="card col-10 my-3 mx-auto px-0 border text-center shadow-lg">
+                        <div class="card-header p-4 text-center">
+                            <h5 class="h1 uppercase"><%= task.projectName %></h5>
                         </div>
-                        <div class="card-body py-1">
-                            <p><%= task.projectDescription %></p>
-                            <a href="/<%= task._id %>" class="btn btn-outline-secondary float-right">Read More</a>
+                        <p class="time"></p>
+                        <a class="h6 bg-light p-3  mb-5 text-right"><%= task.duration %></a>
+                        <div class="card-body py-2">
+                            <p class="capitalize text-dark"><%= task.projectDescription %></p>
+                            <a href="dashboard/<%= task._id %>" class="btn btn-outline-secondary">Read More</a>
+
                         </div>
                     </div>
-                    <hr>
+                    <hr class="">
+                    <% c++ %>
                     <% }) %>
                     <% } %>
                 </div>
             </div>
+
         </div>
     </div>
 
-    
+
     <!-- MODAL FOR ADD TASK -->
     <div class="modal fade text-dark" id="task">
         <div class="modal-dialog">
@@ -49,36 +55,26 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="/" method="post">
-                        <div class="col-12 d-md-flex">
-                            <div class="form-group col-md-6">
-                                <label for="projectName">Project Name</label>
-                                <input name='projectName' id="projectName" type="text" class="form-control">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="projectType">Project Type</label>
-                                <input name='projectType' id="projectType" type="text" class="form-control">
-                            </div>
+                    <form action="/dashboard/" method="post">
+                        <div class="form-group">
+                            <label for="projectName">Project Name</label>
+                            <input name='projectName' id="projectName" type="text" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="description">Project Description</label>
-                            <textarea name="projectDescription" id="description" class="form-control" rows='5'
+                            <textarea name="projectDescription" id="description" class="form-control" rows='8'
                                 placeholder="Whats the project all about"></textarea>
                         </div>
-    
+
                         <div class="form-group">
                             <label for="persons">Number Of Persons Involved</label>
                             <input name='personsInvolved' id="persons" type="text" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="amount">Amount Required</label>
-                            <input name='amountRequired' id="amount" type="text" class="form-control">
-                        </div>
-                        <div class="form-group">
                             <label for="location">Location</label>
                             <input name='location' id="location" type="text" class="form-control">
                         </div>
-    
+
                         <div class="form-group">
                             <label for="duration">Project Duration</label>
                             <input name='duration' type="text" placeholder="duration" class="form-control mb-3">
@@ -92,6 +88,10 @@
                                 <label for="to">To</label>
                                 <input name='to' type="date" id="to" class="form-control">
                             </div>
+                            <div class="form-group d-none">
+                                <label for="amount">Report/label>
+                                    <input name='report' id="amount" type="text" class="form-control">
+                            </div>
                         </div>
                         <input class="btn btn-primary" type="submit" value="Add Task">
                     </form>
@@ -100,7 +100,3 @@
         </div>
     </div>
 </main>
-
-
-
-

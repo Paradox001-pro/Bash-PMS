@@ -1,16 +1,24 @@
-<section class="container">
-    <div class="row">
-        <div class="col-12">
-            <h2><%= task.projectName%></h2>
-            <p><%= task.projectType%></p>
-            <p class="lead"><%= task.projectDescription%></p>
-            <p><%= task.personsInvolved%></p>
-            <p><%= task.amountRequired %></p>
-            <p><%= task.location %></p>
-            <p><%= task.duration %></p>
-            <p><%= task.from %></p>
-            <p><%= task.to %></p>
-            <p> Date written <%= task.date %></p>
+
+
+<main>
+    <section class="container">
+        <div class="row">
+            <% if(task){ %>
+
+            <div class="col-12">
+                <h2 class="text-danger">Project name: <%= task.projectName%></h2>
+                <p class="lead">Project description: <%= task.projectDescription%></p>
+                <p>Number of participants: <%= task.personsInvolved%></p>
+                <p>Location: <%= task.location %></p>
+                <p>Duration: <%= task.duration %></p>
+                <span>From <%= task.from %></span>
+                <span> To <%= task.to %></span>
+                <p>You wrote this project on <%= task.date %></p>
+            </div>
+
+            <h3>Report</h3>
+            <p><%= task.report %></p>
+            <% } %>
         </div>
-    </div>
-</section>
+    </section>
+</main>
